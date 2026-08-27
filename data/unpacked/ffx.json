@@ -1,0 +1,614 @@
+[
+ {
+  "start": 100,
+  "len": 500,
+  "text": "O x . O ' . x o x O ,",
+  "fx": 3,
+  "x": 300,
+  "y": 5,
+  "scale": 1
+ },
+ {
+  "start": 1100,
+  "len": 400,
+  "text": "advert teased",
+  "fx": 3,
+  "x": 230,
+  "y": 175,
+  "scale": 0.6
+ },
+ {
+  "start": 20800,
+  "len": 300,
+  "text": "Machinery",
+  "fx": 1,
+  "x": 160,
+  "y": 170,
+  "scale": 1.2
+ },
+ {
+  "start": 25600,
+  "len": 200,
+  "text": "Bored",
+  "fx": 3,
+  "x": 140,
+  "y": 10,
+  "scale": 1
+ },
+ {
+  "start": 26800,
+  "len": 200,
+  "text": "Pretend",
+  "fx": 3,
+  "x": 140,
+  "y": 15,
+  "scale": 1
+ },
+ {
+  "start": 28000,
+  "len": 200,
+  "text": "Pathetic",
+  "fx": 3,
+  "x": 140,
+  "y": 20,
+  "scale": 1
+ },
+ {
+  "start": 29500,
+  "len": 700,
+  "text": "laughing",
+  "fx": 8,
+  "x": 0,
+  "y": 70,
+  "scale": 1.7
+ },
+ {
+  "start": 34300,
+  "len": 400,
+  "text": "Diversions",
+  "fx": 3,
+  "x": 170,
+  "y": 20,
+  "scale": 0.8
+ },
+ {
+  "start": 36500,
+  "len": 300,
+  "text": "Tedious",
+  "fx": 1,
+  "x": 130,
+  "y": 80,
+  "scale": 1.3
+ },
+ {
+  "start": 38600,
+  "len": 800,
+  "text": "crypto fascistic",
+  "fx": 3,
+  "x": 80,
+  "y": 60,
+  "scale": 0.6
+ },
+ {
+  "start": 41000,
+  "len": 700,
+  "text": "balistics",
+  "fx": 8,
+  "x": 0,
+  "y": 190,
+  "scale": 1.8
+ },
+ {
+  "start": 42100,
+  "len": 100,
+  "text": "Again",
+  "fx": 0,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 42250,
+  "len": 100,
+  "text": "Again",
+  "fx": 1,
+  "x": 0,
+  "y": 0,
+  "scale": 1.5
+ },
+ {
+  "start": 42400,
+  "len": 100,
+  "text": "Again",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 45000,
+  "len": 200,
+  "text": "had enough",
+  "fx": 3,
+  "x": 90,
+  "y": 40,
+  "scale": 1
+ },
+ {
+  "start": 45250,
+  "len": 200,
+  "text": "sad enough",
+  "fx": 7,
+  "x": 170,
+  "y": 40,
+  "scale": 1
+ },
+ {
+  "start": 45500,
+  "len": 200,
+  "text": "mad enough",
+  "fx": 3,
+  "x": 90,
+  "y": 40,
+  "scale": 1
+ },
+ {
+  "start": 46800,
+  "len": 500,
+  "text": "now it's time",
+  "fx": 3,
+  "x": 90,
+  "y": 40,
+  "scale": 1
+ },
+ {
+  "start": 47400,
+  "len": 1500,
+  "text": "change your ::STATE OF MIND",
+  "fx": 6,
+  "x": 35,
+  "y": 76,
+  "scale": 1.2
+ },
+ {
+  "start": 62500,
+  "len": 800,
+  "text": "official sponsor            ",
+  "fx": 6,
+  "x": 12,
+  "y": 168,
+  "scale": 1
+ },
+ {
+  "start": 65800,
+  "len": 400,
+  "text": "loner",
+  "fx": 7,
+  "x": 160,
+  "y": 110,
+  "scale": 1
+ },
+ {
+  "start": 66600,
+  "len": 400,
+  "text": "zoner",
+  "fx": 8,
+  "x": 0,
+  "y": 155,
+  "scale": 1.4
+ },
+ {
+  "start": 69200,
+  "len": 200,
+  "text": "hangin'",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 71100,
+  "len": 300,
+  "text": "wasted",
+  "fx": 6,
+  "x": 0,
+  "y": 0,
+  "scale": 1.2
+ },
+ {
+  "start": 72200,
+  "len": 200,
+  "text": "wasted",
+  "fx": 0,
+  "x": 120,
+  "y": 60,
+  "scale": 1
+ },
+ {
+  "start": 73400,
+  "len": 400,
+  "text": "wasted",
+  "fx": 8,
+  "x": 0,
+  "y": 90,
+  "scale": 1.4
+ },
+ {
+  "start": 75500,
+  "len": 200,
+  "text": "next",
+  "fx": 3,
+  "x": 90,
+  "y": 80,
+  "scale": 1.4
+ },
+ {
+  "start": 77800,
+  "len": 200,
+  "text": "static",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 78600,
+  "len": 200,
+  "text": "automatic",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 80900,
+  "len": 400,
+  "text": "planned",
+  "fx": 6,
+  "x": 20,
+  "y": 140,
+  "scale": 1.2
+ },
+ {
+  "start": 82200,
+  "len": 400,
+  "text": "anarchy",
+  "fx": 2,
+  "x": 130,
+  "y": 75,
+  "scale": 1
+ },
+ {
+  "start": 83400,
+  "len": 500,
+  "text": "disregard",
+  "fx": 6,
+  "x": 35,
+  "y": 110,
+  "scale": 1.2
+ },
+ {
+  "start": 90000,
+  "len": 600,
+  "text": "shut your mouth",
+  "fx": 0,
+  "x": 140,
+  "y": 70,
+  "scale": 1
+ },
+ {
+  "start": 91200,
+  "len": 600,
+  "text": "get back in line",
+  "fx": 2,
+  "x": 90,
+  "y": 110,
+  "scale": 1
+ },
+ {
+  "start": 93400,
+  "len": 300,
+  "text": "just fine",
+  "fx": 2,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 94200,
+  "len": 700,
+  "text": "we hold the levers",
+  "fx": 2,
+  "x": 110,
+  "y": 70,
+  "scale": 1
+ },
+ {
+  "start": 95200,
+  "len": 700,
+  "text": "we pull the strings",
+  "fx": 2,
+  "x": 100,
+  "y": 80,
+  "scale": 1
+ },
+ {
+  "start": 98200,
+  "len": 600,
+  "text": "learn :the words",
+  "fx": 6,
+  "x": 80,
+  "y": 140,
+  "scale": 1
+ },
+ {
+  "start": 100200,
+  "len": 400,
+  "text": "right",
+  "fx": 1,
+  "x": 0,
+  "y": 0,
+  "scale": 1.3
+ },
+ {
+  "start": 100850,
+  "len": 400,
+  "text": "wrong",
+  "fx": 1,
+  "x": 0,
+  "y": 0,
+  "scale": 1.3
+ },
+ {
+  "start": 101500,
+  "len": 300,
+  "text": "strong",
+  "fx": 1,
+  "x": 0,
+  "y": 0,
+  "scale": 1.3
+ },
+ {
+  "start": 103200,
+  "len": 500,
+  "text": "No: c: h: a: n: g: e",
+  "fx": 6,
+  "x": 270,
+  "y": -4,
+  "scale": 1
+ },
+ {
+  "start": 122000,
+  "len": 500,
+  "text": "NO.",
+  "fx": 0,
+  "x": 170,
+  "y": 80,
+  "scale": 1
+ },
+ {
+  "start": 123300,
+  "len": 600,
+  "text": "you won't take me",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 124400,
+  "len": 800,
+  "text": "you won't break me",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 126300,
+  "len": 400,
+  "text": "step in line",
+  "fx": 2,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 128200,
+  "len": 700,
+  "text": "my soul is still mine",
+  "fx": 3,
+  "x": 0,
+  "y": 0,
+  "scale": 1
+ },
+ {
+  "start": 132100,
+  "len": 600,
+  "text": "hang with the program",
+  "fx": 3,
+  "x": 80,
+  "y": 70,
+  "scale": 1
+ },
+ {
+  "start": 135000,
+  "len": 1100,
+  "text": "i_don't_give_a_shit_about__",
+  "fx": 8,
+  "x": 0,
+  "y": 70,
+  "scale": 1.4
+ },
+ {
+  "start": 137500,
+  "len": 600,
+  "text": "I make the rules",
+  "fx": 2,
+  "x": 90,
+  "y": 80,
+  "scale": 1
+ },
+ {
+  "start": 138500,
+  "len": 500,
+  "text": "I stand alone",
+  "fx": 2,
+  "x": 90,
+  "y": 120,
+  "scale": 1
+ },
+ {
+  "start": 140500,
+  "len": 500,
+  "text": "try to believe  ",
+  "fx": 2,
+  "x": 120,
+  "y": 60,
+  "scale": 1
+ },
+ {
+  "start": 142000,
+  "len": 1000,
+  "text": "commit_yourself____",
+  "fx": 8,
+  "x": 0,
+  "y": 110,
+  "scale": 2.4
+ },
+ {
+  "start": 145500,
+  "len": 1100,
+  "text": "protection :rejection :       :correction",
+  "fx": 6,
+  "x": 10,
+  "y": 10,
+  "scale": 1
+ },
+ {
+  "start": 149400,
+  "len": 500,
+  "text": "repression",
+  "fx": 7,
+  "x": 150,
+  "y": 110,
+  "scale": 1.3
+ },
+ {
+  "start": 152700,
+  "len": 900,
+  "text": "STATE_OF_MIND_____",
+  "fx": 8,
+  "x": 0,
+  "y": 112,
+  "scale": 2.5
+ },
+ {
+  "start": 168200,
+  "len": 400,
+  "text": "consent to escape :what's gone  ",
+  "fx": 6,
+  "x": 5,
+  "y": 2,
+  "scale": 1
+ },
+ {
+  "start": 174200,
+  "len": 300,
+  "text": "won't :change  ",
+  "fx": 6,
+  "x": 5,
+  "y": 2,
+  "scale": 1
+ },
+ {
+  "start": 179200,
+  "len": 600,
+  "text": "a nation :of frantic :addicts   ",
+  "fx": 6,
+  "x": 5,
+  "y": 2,
+  "scale": 1
+ },
+ {
+  "start": 183200,
+  "len": 900,
+  "text": "thousands :of people :but you're :all alone     ",
+  "fx": 6,
+  "x": 5,
+  "y": 2,
+  "scale": 1
+ },
+ {
+  "start": 188400,
+  "len": 1900,
+  "text": "Code_and Conception : Skal",
+  "fx": 5,
+  "x": 20,
+  "y": 10,
+  "scale": 1
+ },
+ {
+  "start": 190600,
+  "len": 1900,
+  "text": "Visual_Supply : Krafton, Titan, Made",
+  "fx": 5,
+  "x": 15,
+  "y": 10,
+  "scale": 1
+ },
+ {
+  "start": 193500,
+  "len": 1800,
+  "text": "Soundtrack : Senser 'Stacked_Up'",
+  "fx": 5,
+  "x": 10,
+  "y": 10,
+  "scale": 1
+ },
+ {
+  "start": 201500,
+  "len": 200,
+  "text": "STATE",
+  "fx": 4,
+  "x": 160,
+  "y": 40,
+  "scale": 1
+ },
+ {
+  "start": 201800,
+  "len": 200,
+  "text": "STATE OF",
+  "fx": 4,
+  "x": 160,
+  "y": 43,
+  "scale": 1
+ },
+ {
+  "start": 201100,
+  "len": 8700,
+  "text": "STATE OF MIND",
+  "fx": 4,
+  "x": 160,
+  "y": 45,
+  "scale": 1
+ },
+ {
+  "start": 210500,
+  "len": 400,
+  "text": "O x . O x O ,",
+  "fx": 2,
+  "x": 300,
+  "y": 5,
+  "scale": 1
+ },
+ {
+  "start": 218600,
+  "len": 500,
+  "text": "O x . O",
+  "fx": 2,
+  "x": 300,
+  "y": 5,
+  "scale": 1
+ }
+]

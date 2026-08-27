@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>State of Mind — Bomb</title>
+<meta name="description" content="A from-scratch JavaScript reconstruction of State of Mind by Bomb, 2nd place in the demo competition at The Party 1998.">
+<style>
+  /* THE PALETTE IS THE DEMO'S OWN. Averaged over 42 frames spanning the show
+     the picture sits at #5d5d57 -- hue 64 degrees, 7% saturation: a
+     desaturated olive-green, and the film sections push further green still.
+     These are that hue held at four lightnesses rather than a scheme invented
+     beside it. */
+  :root {
+    --ink: #e4e9dd;
+    --dim: #8b9682;
+    --line: #2c332600;
+    --line: #2f3629;
+    --accent: #a9bd8e;
+  }
+  html, body { margin: 0; height: 100%; background: #060905; }
+  body {
+    color: var(--ink);
+    font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* THE SHOW. 320x200 presented at 4:3 -- the pixel aspect a 1998 monitor
+     gave it. LETTERBOXED INTO THE WINDOW, NEVER STRETCHED: a wrong aspect
+     ratio is the one distortion a viewer notices instantly, and it is the
+     rule every port in this repo follows. `pixelated` matters for the 2d
+     fallback, whose backing store stays 320x200; the WebGL presenter already
+     hands over an exact integer multiple. */
+  #screen {
+    position: fixed; inset: 0; margin: auto;
+    width: min(100vw, 133.334vh); height: min(75vw, 100vh);
+    image-rendering: pixelated;
+    opacity: 0; transition: opacity .5s ease, filter .6s ease;
+  }
+  /* THE TITLE BACKGROUND IS THE DEMO ITSELF, not a picture of it. The engine
+     and the pack are already loaded, so one frame is rendered at load and left
+     on the canvas -- no asset to ship, nothing to keep in sync, and it is
+     literally the thing being presented.
+     Pushed into the palette rather than shown raw: the city is warm sand and
+     the launcher is green, so a duotone through the same hue unifies them and
+     drops the contrast far enough for text to sit on top. */
+  /* As a BACKDROP it fills the window and is cropped, rather than being
+     letterboxed with bars: nothing here is being presented for fidelity, and
+     the 4:3 rule that governs the show does not govern its wallpaper. The
+     moment play is pressed it goes back to the letterboxed 4:3 above. */
+  body.poster #screen {
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    opacity: .85;
+    filter: grayscale(1) brightness(.9) sepia(.9) hue-rotate(36deg) saturate(1.5);
+  }
+  body.playing #screen { opacity: 1; filter: none; }
+
+  /* THE LAUNCHER. Sits over the canvas and fades out on start, so the show
+     never appears to load twice. */
+  #launch {
+    position: fixed; inset: 0; z-index: 2;
+    display: grid; place-content: center; justify-items: center;
+    gap: 2px; padding: 24px; text-align: center;
+    background:
+      radial-gradient(62% 50% at 50% 40%, rgba(5,8,4,.90) 0%, rgba(5,8,4,.66) 48%, rgba(5,8,4,.10) 100%),
+      linear-gradient(180deg, rgba(5,8,4,.80) 0%, rgba(5,8,4,.45) 35%, rgba(5,8,4,.55) 68%, rgba(5,8,4,.92) 100%);
+    transition: opacity .6s ease;
+  }
+  body.playing #launch { opacity: 0; pointer-events: none; }
+  body.ended #launch { opacity: 1; pointer-events: auto; }
+
+  #launch h1 {
+    margin: 0; font-size: clamp(44px, 11vw, 116px); font-weight: 600;
+    letter-spacing: -.02em; line-height: .95;
+  }
+  .by { color: var(--accent); font-size: clamp(16px, 3.2vw, 24px); margin-top: 6px; }
+  .what { color: var(--dim); margin-top: 14px; }
+  .crew { color: var(--dim); margin-top: 4px; max-width: 60ch; text-wrap: balance; }
+  .crew b { color: var(--ink); font-weight: 500; }
+
+  #start {
+    margin-top: 26px; padding: 11px 30px; cursor: pointer;
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 3px;
+    font: inherit; letter-spacing: .16em; text-transform: uppercase;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  #start:hover { border-color: var(--accent); color: var(--accent); }
+  #start:disabled { opacity: .4; cursor: default; }
+
+  .keys { color: var(--dim); margin-top: 24px; font-size: 12px; }
+  .keys kbd {
+    color: var(--ink); border: 1px solid var(--line); border-radius: 3px;
+    padding: 1px 6px; margin: 0 1px; font: inherit; font-size: 11px;
+  }
+  .src { margin-top: 18px; font-size: 12px; }
+  .src a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .src a:hover { color: var(--accent); }
+
+  /* Transient line over the show: seek feedback, an unported part, an error. */
+  #status {
+    position: fixed; left: 0; right: 0; bottom: 6%; z-index: 3;
+    text-align: center; color: var(--dim); font-size: 12px;
+    letter-spacing: .18em; text-transform: uppercase;
+    pointer-events: none; min-height: 1.2em;
+  }
+  /* ?embedded strips the chrome for an iframe: the page is the demo. */
+  html.embedded #status { display: none; }
+</style>
+</head>
+<body>
+<canvas id="screen" width="320" height="200"></canvas>
+
+<div id="launch">
+  <h1>State of Mind</h1>
+  <div class="by">Bomb</div>
+  <div class="what">demo &middot; 2nd place, The Party 1998</div>
+  <div class="crew">
+    code <b>Skal</b> &middot; music <b>Senser</b> &middot;
+    graphics <b>Made</b>&nbsp;and&nbsp;<b>Krafton</b>
+  </div>
+
+  <button id="start" disabled>loading…</button>
+
+  <div class="keys">
+    <kbd>space</kbd> pause &middot; <kbd>&larr;</kbd><kbd>&rarr;</kbd> seek 5s &middot;
+    <kbd>f</kbd> fullscreen &middot; <kbd>esc</kbd> stop
+  </div>
+  <div class="src">
+    <a href="https://github.com/Jasper2-0/bomb_state-of-mind">source and restoration notes</a>
+  </div>
+</div>
+
+<div id="status"></div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
