@@ -12,6 +12,7 @@ runtime by ported parsers — the pack in `data/` is the 1998 file, byte for byt
 
     index.html          the launcher
     js/main.js          shell: clock, controls, presentation
+    js/avsync.js        holds the picture back to meet the sound
     js/fidelity.js      the engine — the show's parts and their mixers
     js/raster3d.js      the polygon rasteriser
     js/world3ds.js      .3ds parsing, normals, the vertex weld
@@ -36,6 +37,7 @@ runtime by ported parsers — the pack in `data/` is the 1998 file, byte for byt
 | `?rate=30` `?rate=50` `?rate=60` | re-time the show to another rate |
 | `?present=2d` | force the canvas-2d fallback (default: WebGL) |
 | `?scale=1600` | backbuffer width; also `3200` and `4800`, each an exact multiple |
+| `?avoffset=120` | if the music still sounds late, how late in ms. The port already corrects for the audio device's own latency; this trims what it cannot measure |
 | `?debug` | time / frame / phase readout and a timing overlay |
 | `?embedded` | hide the status line, for an iframe |
 | `?t=10` | render one deterministic frame at that show time |

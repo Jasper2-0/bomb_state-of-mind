@@ -16,6 +16,10 @@
 //   ?rate=<hz>     25, 30, 50 or 60. Outranks ?original and the headless
 //                  default. Default 60 for a viewer, 25 under ?t=/?inspect=1
 //                  because the references are 25 Hz — see below
+//   ?avoffset=<ms> how late the MUSIC sounds on this machine, in ms. The
+//                  automatic correction reads the device; this trims what it
+//                  cannot know. `?avoffset=120` holds the picture back 120 ms.
+//                  Live playback only -- see js/avsync.js
 //   ?capoff=<ms>   shift the reference-capture alignment (inspector only)
 //   ?capdrift=<ms/s>  its drift term (inspector only)
 //   ?weld=1        restore the original's mesh weld, which is OFF by default
@@ -40,6 +44,7 @@ import { PHASES } from './show-data.js';
 import { createPresenter } from './present.js';
 import { createDebugOverlay } from './debug-overlay.js';
 import { resolveRate } from './rate.js';
+import { createAvSync, parseTrimSeconds } from './avsync.js';
 import { DATA_BASE } from './assets.js';
 
 const status = document.querySelector('#status');
@@ -286,7 +291,19 @@ try {
 
     let srcNode = null, anchorCtx = 0, anchorShow = 0;
     let running = false, wakeLock = null;
-    const showTime = () => (audioCtx.currentTime - anchorCtx) + anchorShow;
+
+    // WHERE THE SOUND ACTUALLY IS. `audioCtx.currentTime` is the SCHEDULING
+    // clock: the audio it names is not out of the speakers until
+    // outputLatency later, so following it exactly puts the picture in front
+    // of the music by that much -- 32 ms measured on a wired Mac, 150-300 ms
+    // on a Bluetooth path, and reported on pouet before it was corrected
+    // here. `av.offset` is the seconds to add; the rule, both its terms and
+    // what happens when the browser will not say, is js/avsync.js.
+    //
+    // NOTHING MEASURED READS THIS. It lives in the live-playback branch, and
+    // ?t= / ?inspect=1 never reach it -- they build no AudioContext at all.
+    const av = createAvSync({ trimSeconds: parseTrimSeconds(params) });
+    const showTime = () => (audioCtx.currentTime - anchorCtx) + anchorShow + av.offset;
 
     // A transient line over the show. Nothing is on screen unless something
     // happened: the page is the demo, not a dev harness.
@@ -388,9 +405,15 @@ try {
     // ---- the frame loop ---------------------------------------------------
     const overlay = debug ? createDebugOverlay({ stepMs, phases: PHASES }) : null;
     let shown = 0, statTime = 0, shownPerSec = 0, lastFrame = -1;
-    const tick = () => {
+    const tick = (tsMs) => {
       requestAnimationFrame(tick);
       if (!running) return;
+      // The display period comes from these timestamps, and the device is
+      // re-read every frame because plugging in headphones changes
+      // outputLatency and fires no event. Both are cheap; avsync.js holds the
+      // result steady so the clock cannot jitter backwards into a stall.
+      av.frame(tsMs);
+      av.measure(audioCtx);
       const t = showTime();
       if (t < 0) return;
       // THE SHOW ENDS. It used to run the rAF loop forever past the last
@@ -408,6 +431,17 @@ try {
         if (s.unported) say('part not yet ported', 0);
       }
     };
+    // ?debug exposes what the correction decided, so work/verify/av-sync.mjs
+    // can check the WIRING in a browser and not just the arithmetic in node.
+    if (debug) {
+      window.__avsync = () => ({
+        offsetMs: av.offset * 1000,
+        framePeriodMs: av.framePeriod * 1000,
+        trimMs: av.trimSeconds * 1000,
+        outputLatencyMs: (audioCtx.outputLatency ?? 0) * 1000,
+        baseLatencyMs: (audioCtx.baseLatency ?? 0) * 1000,
+      });
+    }
     requestAnimationFrame(tick);
   }
 
