@@ -4,7 +4,7 @@ A from-scratch JavaScript reconstruction of *State of Mind* by **Bomb**, which
 took 2nd place in the demo competition at The Party 1998. Code by Skal, music
 by Senser, graphics by Made and Krafton.
 
-Live: **jasper2-0.github.io/bomb_state-of-mind/**
+Live: https://jasper2-0.github.io/bomb_state-of-mind
 
 Nothing is emulated. The original's software renderer is ported routine by
 routine to JavaScript, and every asset is read out of the shipped `mind.dat` at
